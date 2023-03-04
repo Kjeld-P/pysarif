@@ -1,3 +1,49 @@
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysarif"
+version = "0.1.0"
+description = "Package to work with SARIF files as Python objects"
+readme = "README.md"
+authors = [{ name = "Kjeld Perquin", email = "kjeld.perquin96@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'Topic :: Security',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+]
+keywords = ["sarif", "pysarif", "package"]
+dependencies = [
+    "dataclasses-json",
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = []
+
+[project.urls]
+homepage = "https://github.com/Kjeld-P/pysarif"
+documentation = "https://github.com/Kjeld-P/pysarif/issues"
+repository = "https://github.com/Kjeld-P/pysarif"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"',
+]
